@@ -20,10 +20,11 @@ __all__ = [
     'PageBase',
     'PageLogin',
     'PageMovieDetail',
-    'PageTop',
+    'PageTopMovies',
 ]
 
 pages = [
+    PageBase,
     PageLogin,
     PageMovieDetail,
     PageTopMovies,

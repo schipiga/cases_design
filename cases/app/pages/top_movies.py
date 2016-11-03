@@ -36,23 +36,6 @@ class ListSocial(ui.List):
     row_xpath = ".//div[contains(@class, 'dropdown-menu-item')]"
 
 
-@ui.register_ui(
-    button_toggle=ui.Button(By.CSS_SELECTOR, '.dropdown-toggle'),
-    item_default=ui.UI(By.CSS_SELECTOR, 'a:nth-of-type(1)'),
-    item_delete=ui.UI(By.CSS_SELECTOR, '[id$="action_delete"]'),
-    item_edit=ui.UI(By.CSS_SELECTOR, '[id$="action_edit"]'))
-class DropdownMenu(ui.Block):
-    """Dropdown menu."""
-
-    def __init__(self, *args, **kwgs):
-        """Constructor.
-
-        It has predefined selector.
-        """
-        super(DropdownMenu, self).__init__(*args, **kwgs)
-        self.locator = By.CSS_SELECTOR, '.btn-group'
-
-
 class CellMovie(ui.Block):
     """Cell."""
 
@@ -69,8 +52,9 @@ class CellMovie(ui.Block):
     link_poster=ui.Link(By.CSS_SELECTOR, 'td.posterColumn > a'),
     link_title=ui.Link(By.CSS_SELECTOR, 'td.titleColumn > a'),
     label_year=ui.Link(By.CSS_SELECTOR, 'td.titleColumn > .secondaryInfo'),
-    button_your_rating=ui.Button(By.CSS_SELECTOR, 'td.ratingColumn > .unseen'),
-    button_watch_list=ui.Button(By.CSS_SELECTOR, 'td.watchList > .standalone'))
+    button_your_rating=ui.Button(By.CSS_SELECTOR, 'td.ratingColumn .unseen'),
+    button_watch_list=ui.Button(
+        By.CSS_SELECTOR, 'td.watchlistColumn .standalone'))
 class RowMovie(ui.Row):
     """Row with object."""
     cell_cls = CellMovie
@@ -91,7 +75,7 @@ class TableMovies(ui.Table):
     combobox_sort_type=ui.ComboBox(By.NAME, 'sort'),
     button_sort_order=ui.Button(By.CLASS_NAME, 'lister-sort-reverse'),
     table_movies=TableMovies(By.CSS_SELECTOR, 'table.chart'),
-    dropdown_menu=DropdownMenu(By.CSS_SELECTOR, '.dropdown-menu.menu-right'))
+    list_social_share=ListSocial(By.CSS_SELECTOR, '.dropdown-menu.menu-right'))
 class PageTopMovies(PageBase):
     """Base page of user account.""" 
     url = '/chart/top?ref_=nv_mv_250_6'

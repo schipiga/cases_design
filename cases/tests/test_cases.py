@@ -3,8 +3,8 @@
 Autotests for top 250 imdb
 --------------------------
 
-Please, note that autotests may have different steps and case, according to
-the convenience of automation (And usually it happens).
+**Please, note that autotests may have different steps and cases, according to
+the convenience of automation.** (*And usually it happens.*)
 """
 
 import pytest
@@ -12,14 +12,14 @@ import pytest
 
 @pytest.mark.usefixtures('top_movies_page')
 class TestTop250Imdb(object):
-    """Tests for top 250 IMDB movies page.
+    """Functional e2e tests for top 250 IMDB movies page.
 
     **Preconditions:**
 
     #. User is not authenticated.
     """
 
-    def test_share_with_social(self):
+    def test_share_with_social(self, top_movies_steps):
         """**Scenario:** Unauthorized user can share top IMDB movies with
         social networks.
 
@@ -36,3 +36,10 @@ class TestTop250Imdb(object):
 
         #. Close browser.
         """
+        top_movies_steps.share_with_social()
+
+    def test_like_movie(self, top_movies_steps):
+        top_movies_steps.like_movie(movie_number=0)
+
+    def test_add_movie_to_watch_list(self, top_movies_steps):
+        top_movies_steps.add_movie_to_watch_list(movie_number=0)

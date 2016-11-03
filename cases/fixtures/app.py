@@ -7,7 +7,7 @@ from cases import steps
 __all__ = [
     'app',
     'top_movies_page',
-    'top_steps',
+    'top_movies_steps',
 ]
 
 
@@ -22,10 +22,10 @@ def app():
 
 
 @pytest.fixture
-def top_steps(app):
+def top_movies_steps(app):
     return steps.TopMoviesSteps(app)
 
 
 @pytest.fixture
-def top_movies_page(top_steps):
-    return top_steps.page_top_movies()
+def top_movies_page(top_movies_steps):
+    return top_movies_steps.page_top_movies()

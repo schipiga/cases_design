@@ -16,9 +16,11 @@ Application
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import re
 from tempfile import mkdtemp
 
 import pom
+from pom.base import camel2snake
 from pom import ui
 
 from selenium.webdriver import FirefoxProfile
@@ -67,6 +69,7 @@ class Application(pom.App):
         self.webdriver.maximize_window()
         self.webdriver.set_window_size(*config.RESOLUTION)
         self.webdriver.set_page_load_timeout(config.ACTION_TIMEOUT)
+        self.open(pages.PageTopMovies)
 
     @property
     def download_dir(self):
@@ -85,23 +88,25 @@ class Application(pom.App):
             url = page.url
         super(Application, self).open(url)
 
-    @property
-    def current_page(self):
-        """Current page dynamic definition."""
-        current_url = self.webdriver.current_url
-        for page in sorted_pages:
-            url = self.app_url + page.url
-
-            if current_url.startswith(url):
-                url_end = current_url.split(url)[-1]
-
-                if not (url_end and url_end[0].isalnum()):
-                    return page(self)
-        return pages.PageBase(self)
-
     def flush_session(self):
         """Delete all cookies.
 
         It forces flushes user session by cookies deleting.
         """
         self.webdriver.delete_all_cookies()
+
+    @property
+    def current_page(self):
+        """Define current page"""
+        current_url = self.webdriver.current_url
+        current_url = self._remove_protocol(current_url)
+        app_url = self._remove_protocol(self.app_url)
+        for page in self._registered_pages:
+            if re.match(app_url + page.url, current_url):
+                return getattr(self, camel2snake(page.__name__))
+        else:
+            raise Exception("Can't define current page")
+
+    @staticmethod
+    def _remove_protocol(url):
+        return url.split('://', 1)[-1]
