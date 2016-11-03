@@ -14,9 +14,30 @@ If you are interesting how POM works in enterprise testing, please visit
 https://github.com/Mirantis/mos-horizon/tree/v9.1.
 If you are curious about STEPS-methodology in enterprise testing, please visit
 http://stepler.readthedocs.io/, https://github.com/Mirantis/stepler.
+
+**How to install:**
+
+Make following commands in terminal::
+
+   sudo apt-get install chromium-browser libav-tools xvfb xsel xclip
+   git clone https://github.com/sergeychipiga/cases_design
+   cd cases_design
+   virtualenv .venv
+   . .venv/bin/activate
+   pip install -U pip
+   pip install -r requirements.txt
+   pip install -e .
+
+**How to launch:**
+
+#. ``py.test cases -v --junitxml=test_report.xml`` - single process
+#. ``py.test cases -v --junitxml=test_report.xml -n auto`` - parallel mode
+
+**How to debug:**
+
+#. ``py.test cases -v --disable-video-capture``
 """
 
-from hamcrest import assert_that, has_length
 import pytest
 
 from cases import config

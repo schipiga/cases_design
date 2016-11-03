@@ -3,4 +3,5 @@
 *.egg*
 build
 .cache
-test_reports
+test_result*
+test_report*

@@ -44,9 +44,8 @@ class TopMoviesSteps(BaseSteps):
             assert_that(social_rows[3].link_social.href,
                         starts_with('http://www.imdb.com/chart/top'))
             social_rows[3].click()
-            # TODO(schipiga): use latest browser version.
-            # assert_that(pyperclip.paste(),
-            #             equal_to('http://www.imdb.com/chart/top'))
+            assert_that(pyperclip.paste(),
+                        equal_to('http://www.imdb.com/chart/top'))
 
     def change_movies_sort_type(self, sort_type, check=True):
         """Step to change movies sort type."""
