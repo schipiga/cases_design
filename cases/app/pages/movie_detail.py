@@ -1,3 +1,9 @@
+"""
+Base page of user account.
+
+@author: schipiga@mirantis.com
+"""
+
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,20 +17,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .base import PageBase
-from .login import PageLogin
-from .movie_detail import PageMovieDetail
-from .top import PageTop
+from pom import ui
+from selenium.webdriver.common.by import By
 
-__all__ = [
-    'PageBase',
-    'PageLogin',
-    'PageMovieDetail',
-    'PageTop',
-]
+from cases.app.pages.base import PageBase
 
-pages = [
-    PageLogin,
-    PageMovieDetail,
-    PageTop,
-]
+
+@ui.register_ui(
+    label_title=ui.UI(By.CSS_SELECTOR, 'h1[itemprop="name"]'),
+    link_year=ui.Link(By.CSS_SELECTOR, '#titleYear > a'),
+    label_rating=ui.UI(By.CSS_SELECTOR, '[itemprop="ratingValue"]'))
+class PageMovieDetail(PageBase):
+    """Base page of user account.""" 
+    url = '/registration/signin'

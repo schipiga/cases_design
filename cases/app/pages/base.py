@@ -1,3 +1,9 @@
+"""
+Base page of user account.
+
+@author: schipiga@mirantis.com
+"""
+
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,20 +17,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .base import PageBase
-from .login import PageLogin
-from .movie_detail import PageMovieDetail
-from .top import PageTop
+import pom
+from pom import ui
+from selenium.webdriver.common.by import By
 
-__all__ = [
-    'PageBase',
-    'PageLogin',
-    'PageMovieDetail',
-    'PageTop',
-]
 
-pages = [
-    PageLogin,
-    PageMovieDetail,
-    PageTop,
-]
+class PageBase(pom.Page):
+    """Base page of user account.""" 
+    url = '/'
