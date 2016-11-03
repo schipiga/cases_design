@@ -17,8 +17,8 @@ Fixtures
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .app import *  # noqa
-from .auto_use import *  # noqa
+from cases.fixtures.app import *  # noqa F403
+from cases.fixtures.auto_use import *  # noqa F403
 
 __all__ = [
     'app',

@@ -17,7 +17,7 @@ Steps
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .top_movies import TopMoviesSteps
+from cases.steps.top_movies import TopMoviesSteps
 
 __all__ = [
     'TopMoviesSteps',

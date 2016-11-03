@@ -1,7 +1,7 @@
 """
-Base page of user account.
-
-@author: schipiga@mirantis.com
+--------------------
+Top IMDB movies page
+--------------------
 """
 
 # Licensed under the Apache License, Version 2.0 (the "License");

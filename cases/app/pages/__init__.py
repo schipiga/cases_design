@@ -17,10 +17,10 @@ Application pages
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .base import PageBase
-from .login import PageLogin
-from .movie_details import PageMovieDetails
-from .top_movies import PageTopMovies
+from cases.app.pages.base import PageBase
+from cases.app.pages.login import PageLogin
+from cases.app.pages.movie_details import PageMovieDetails
+from cases.app.pages.top_movies import PageTopMovies
 
 __all__ = [
     'PageBase',

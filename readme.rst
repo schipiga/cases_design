@@ -19,7 +19,7 @@ First of all let's define the type of testing. We see a web page, and seems it w
 - markup testing - `yandex.gemini <https://github.com/gemini-testing/gemini>`_
 - integration and unit testing - commonly depends on backend language and framework.
 
-Then let's create test plan according to test design patterns and page functionality. And separate testcases according to severity (not priority! priority of bugs fixing is set by project manager(s)).
+Then let's create test plan according to test design patterns and page functionality. And separate testcases according to severity (not priority! priority of bugs fixing is set by project manager(s)). We consider only severities: *critical*, *major* and *minor*, despite of in reality also they can be expanded with *blocker*, *medium*, *cosmetic*, etc, according to a project rules.
 
 **Test suite preconditions:**
 
@@ -27,7 +27,7 @@ Then let's create test plan according to test design patterns and page functiona
 
 **Critical:**
 
-#. Page should looks fine and all active UI elements should be clickable in popular browser. (List of top browsers: http://www.w3schools.com/browsers/. Special attention should be paid to IE. It is not functional testcase but very critical).
+#. Page should looks fine and all active UI elements should be clickable in popular browsers. (List of top browsers: http://www.w3schools.com/browsers/. Special attention should be paid to IE. It is not functional testcase but is very critical).
 #. Clicking to movie title link leads to movie details page.
 #. Clicking to movie star "your rating" leads to login page.
 #. Clicking to movie button "add to watchlist" leads to login page.
@@ -91,12 +91,12 @@ Scenario: **In dropdown menu social buttons lead to social pages**
     - Dropdown menu with social buttons to share is present.
 #. Click button "Facebook"
     - Dropdown menu is closed.
-    - Facebook page to share IMDB page is opened.
+    - Facebook page to share IMDB page is opened in new window.
 #. Click button "Share".
     - Dropdown menu with social buttons to share is present.
 #. Click button "Twitter"
     - Dropdown menu is closed.
-    - Twitter page to tweet IMDB page is opened.
+    - Twitter page to tweet IMDB page is opened in new window.
 
 ----------------------------------------------
 

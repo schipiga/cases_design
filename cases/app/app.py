@@ -22,7 +22,6 @@ import re
 import pom
 from pom.base import camel2snake
 from pom import ui
-
 from selenium.webdriver.remote.remote_connection import RemoteConnection
 
 from cases import config

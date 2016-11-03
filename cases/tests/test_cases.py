@@ -41,8 +41,12 @@ Make following commands in terminal::
 #. ``py.test cases -v --junitxml=test_report.xml -n 2`` - two threads
 #. ``py.test cases -v --junitxml=test_report.xml -n auto`` - autocalc threads
 
-Results are available in folder ``test_results`` including
+Results are available in folder ``test_reports`` including
 **video capture of virtual display**.
+
+By default tests are launched in xvfb with video capture. If you want to
+disable them, please use ``py.test`` keys ``--disable-virtual-display`` and
+``--disable-video-capture``.
 
 **How to debug:**
 

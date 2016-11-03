@@ -21,8 +21,7 @@ from hamcrest import assert_that, equal_to, has_length, starts_with
 import pyperclip
 
 from cases import config
-
-from .base import BaseSteps
+from cases.steps.base import BaseSteps
 
 
 class TopMoviesSteps(BaseSteps):
@@ -42,6 +41,8 @@ class TopMoviesSteps(BaseSteps):
 
         if check:
             social_rows = page.list_social_share.rows
+            # These checks can be separated to diffent tests, but actually it
+            # depends on test design approach.
             assert_that(social_rows[0].link_social.href,
                         starts_with('http://www.facebook.com/sharer'))
             assert_that(social_rows[1].link_social.href,
