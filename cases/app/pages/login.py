@@ -39,6 +39,6 @@ __all__ = [
     link_create_account=ui.Link(
         By.CSS_SELECTOR, '.list-group-item.create-account'))
 class PageLogin(PageBase):
-    """Base page of user account."""
+    """Login IMDB page."""
 
     url = '/registration/signin'

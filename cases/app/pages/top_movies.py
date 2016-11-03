@@ -31,18 +31,18 @@ __all__ = [
 
 @ui.register_ui(link_social=ui.Link(By.TAG_NAME, 'a'))
 class RowSocial(ui.Row):
-    """Row with container."""
+    """Social item."""
 
 
 class ListSocial(ui.List):
-    """List of containers."""
+    """List of social items."""
 
     row_cls = RowSocial
     row_xpath = ".//div[contains(@class, 'dropdown-menu-item')]"
 
 
 class CellMovie(ui.Block):
-    """Cell."""
+    """Cell of movie row."""
 
     @property
     def value(self):
@@ -61,13 +61,13 @@ class CellMovie(ui.Block):
     button_watch_list=ui.Button(
         By.CSS_SELECTOR, 'td.watchlistColumn .standalone'))
 class RowMovie(ui.Row):
-    """Row with object."""
+    """Row with movie."""
 
     cell_cls = CellMovie
 
 
 class TableMovies(ui.Table):
-    """Table with objects."""
+    """Table of movies."""
 
     row_cls = RowMovie
     columns = {'poster': 1,
@@ -84,6 +84,6 @@ class TableMovies(ui.Table):
     table_movies=TableMovies(By.CSS_SELECTOR, 'table.chart'),
     list_social_share=ListSocial(By.CSS_SELECTOR, '.dropdown-menu.menu-right'))
 class PageTopMovies(PageBase):
-    """Base page of user account."""
+    """Page with top 250 IMDB movies list."""
 
     url = '/chart/top?ref_=nv_mv_250_6'

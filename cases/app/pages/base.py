@@ -25,6 +25,6 @@ __all__ = [
 
 
 class PageBase(pom.Page):
-    """Base page of user account."""
+    """Base IMDB page."""
 
     url = '/'

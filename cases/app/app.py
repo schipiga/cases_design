@@ -53,13 +53,10 @@ class Application(pom.App):
     def open(self, page):
         """Open page or url.
 
-        Arguments:
-            - page: page class or url string.
+        Args:
+            page (PageBase|str): page class or url string.
         """
-        if isinstance(page, str):
-            url = page
-        else:
-            url = page.url
+        url = page if isinstance(page, str) else page.url
         super(Application, self).open(url)
 
     def flush_session(self):
@@ -83,4 +80,7 @@ class Application(pom.App):
 
     @staticmethod
     def _remove_protocol(url):
+        """Removes protocol ``http(s)://`` prefix, because IMDB makes
+        redirections http <---> https.
+        """
         return url.split('://', 1)[-1]

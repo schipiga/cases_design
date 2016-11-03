@@ -29,7 +29,14 @@ class TopMoviesSteps(BaseSteps):
     """Top movies steps."""
 
     def share_with_social(self, check=True):
-        """Step to share with social."""
+        """Step to share with social.
+
+        Args:
+            check (bool): flag whether check step or no
+
+        Raises:
+            AssertionError: if check is failed
+        """
         page = self.app.page_top_movies
         page.button_share.click()
 
@@ -48,7 +55,15 @@ class TopMoviesSteps(BaseSteps):
                         equal_to('http://www.imdb.com/chart/top'))
 
     def change_movies_sort_type(self, sort_type, check=True):
-        """Step to change movies sort type."""
+        """Step to change movies sort type.
+
+        Args:
+            sort_type (str): type of movies sorting
+            check (bool): flag whether check step or no
+
+        Raises:
+            AssertionError: if check is failed
+        """
         page = self.app.page_top_movies
         page.combobox_sort_type.value = sort_type
 
@@ -80,7 +95,14 @@ class TopMoviesSteps(BaseSteps):
             assert_that(row_last.link_title.value, equal_to(title_last))
 
     def reverse_movies_sort_order(self, check=True):
-        """Step to reverse sort order."""
+        """Step to reverse sort order.
+
+        Args:
+            check (bool): flag whether check step or no
+
+        Raises:
+            AssertionError: if check is failed
+        """
         def _get_numbers(rows):
             numbers = []
             for row in rows:
@@ -101,7 +123,16 @@ class TopMoviesSteps(BaseSteps):
                         equal_to(numbers_before))
 
     def show_movie_details(self, movie_number, by_title=True, check=True):
-        """Step to show detailed info about movie."""
+        """Step to show detailed info about movie.
+
+        Args:
+            movie_number (int): number of movie item in movies list
+            by_title (bool): flag to use title link to navigate or icon link
+            check (bool): flag whether check step or no
+
+        Raises:
+            AssertionError: if check is failed
+        """
         page = self.app.page_top_movies
         row_movie = page.table_movies.rows[movie_number]
 
@@ -122,7 +153,15 @@ class TopMoviesSteps(BaseSteps):
                 assert_that(page.label_rating.value, equal_to(movie_rating))
 
     def like_movie(self, movie_number, check=True):
-        """Step to like movie and increase its rating."""
+        """Step to like movie and increase its rating.
+
+        Args:
+            movie_number (int): number of movie item in movies list
+            check (bool): flag whether check step or no
+
+        Raises:
+            AssertionError: if check is failed
+        """
         page = self.app.page_top_movies
         row_movie = page.table_movies.rows[movie_number]
         row_movie.button_your_rating.click()
@@ -132,7 +171,15 @@ class TopMoviesSteps(BaseSteps):
             self.check_page_login_buttons()
 
     def add_movie_to_watch_list(self, movie_number, check=True):
-        """Step to add movie to watch list."""
+        """Step to add movie to watch list.
+
+        Args:
+            movie_number (int): number of movie item in movies list
+            check (bool): flag whether check step or no
+
+        Raises:
+            AssertionError: if check is failed
+        """
         page = self.app.page_top_movies
         row_movie = page.table_movies.rows[movie_number]
         row_movie.button_watch_list.click()

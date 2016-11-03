@@ -32,6 +32,6 @@ __all__ = [
     link_year=ui.Link(By.CSS_SELECTOR, '#titleYear > a'),
     label_rating=ui.UI(By.CSS_SELECTOR, '[itemprop="ratingValue"]'))
 class PageMovieDetails(PageBase):
-    """Base page of user account."""
+    """Page with movie details."""
 
     url = '/title'

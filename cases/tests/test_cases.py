@@ -1,13 +1,13 @@
 """
---------------------------
-Autotests for top 250 imdb
---------------------------
+---------------------------------
+Autotests for top 250 IMDB movies
+---------------------------------
 
 **Please, note that autotests may have different steps and cases than manual
-cases, according to the convenience of automation.**
+tests, according to the convenience of automation.**
 (*And usually it happens.*)
 
-These testcases are implemented with POM framework
+These autotests are implemented with POM framework
 (http://pom.readthedocs.io/en/latest/, https://github.com/sergeychipiga/pom)
 and STEPS-methodology.
 
@@ -19,10 +19,13 @@ http://stepler.readthedocs.io/, https://github.com/Mirantis/stepler.
 
 **How to install:**
 
+*Verified on Ubuntu v14.04 and higher.*
+
 Make following commands in terminal::
 
+   echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
    sudo apt-get update
-   sudo apt-get install -y chromium-browser libav-tools xvfb xsel xclip python-pip git gconf2
+   sudo apt-get install -y google-chrome-stable libav-tools xvfb xsel xclip python-pip git gconf2
    sudo pip install virtualenv
    git clone https://github.com/sergeychipiga/cases_design
    cd cases_design
@@ -34,12 +37,18 @@ Make following commands in terminal::
 
 **How to launch:**
 
-#. ``py.test cases -v --junitxml=test_report.xml`` - single process
-#. ``py.test cases -v --junitxml=test_report.xml -n auto`` - parallel mode
+#. ``py.test cases -v --junitxml=test_report.xml`` - single thread
+#. ``py.test cases -v --junitxml=test_report.xml -n 2`` - two threads
+#. ``py.test cases -v --junitxml=test_report.xml -n auto`` - autocalc threads
+
+Results are available in folder ``test_results`` including
+**video capture of virtual display**.
 
 **How to debug:**
 
-#. ``py.test cases -v --disable-video-capture``
+If you use ``ipdb`` you should disable stdout capture:
+
+#. ``py.test cases -v --disable-video-capture --disable-virtual-display -s``
 """
 
 # Licensed under the Apache License, Version 2.0 (the "License");

@@ -25,6 +25,6 @@ class BaseSteps(object):
         """Constructor.
 
         Arguments:
-            - app: horizon application instance.
+            app (object): application instance
         """
         self.app = app

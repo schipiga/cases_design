@@ -75,7 +75,7 @@ Scenario: **Share button is clickable**
 **Steps:**
 
 #. Click button "Share".
-    - Dropdown menu with social buttons to share are present (*QA engineer should be familiar with project and understand what it's meant under "social buttons to share" and other concepts. It should not be described in every step in details.*)
+    - Dropdown menu with social buttons to share is present (*QA engineer should be familiar with project and understand what it's meant under "social buttons to share" and other concepts. It should not be described in every step in details.*)
 
 ----------------------------------------
 
@@ -88,10 +88,12 @@ Scenario: **In dropdown menu social buttons lead to social pages**
 **Steps:**
 
 #. Click button "Share".
-    - Dropdown menu with social buttons to share are present.
+    - Dropdown menu with social buttons to share is present.
 #. Click button "Facebook"
     - Dropdown menu is closed.
     - Facebook page to share IMDB page is opened.
+#. Click button "Share".
+    - Dropdown menu with social buttons to share is present.
 #. Click button "Twitter"
     - Dropdown menu is closed.
     - Twitter page to tweet IMDB page is opened.
@@ -107,7 +109,7 @@ Scenario: **Copy site address to clipboard in dropdown menu**
 **Steps:**
 
 #. Click button "Share".
-    - Dropdown menu with social buttons to share are present.
+    - Dropdown menu with social buttons to share is present.
 #. Click item "Copy"
     - Dropdown menu is closed.
 #. Open text editor and push Ctrl+V
