@@ -5,3 +5,4 @@ build
 .cache
 test_result*
 test_report*
+.tox
