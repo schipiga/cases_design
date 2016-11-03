@@ -17,13 +17,11 @@ Application
 # limitations under the License.
 
 import re
-from tempfile import mkdtemp
 
 import pom
 from pom.base import camel2snake
 from pom import ui
 
-from selenium.webdriver import FirefoxProfile
 from selenium.webdriver.remote.remote_connection import RemoteConnection
 
 from cases import config
@@ -38,42 +36,19 @@ RemoteConnection.set_timeout(config.ACTION_TIMEOUT)
 sorted_pages = sorted(pages.pages, key=lambda page: len(page.url))
 
 
-class Profile(FirefoxProfile):
-    """Application browser profile."""
-
-    def __init__(self, *args, **kwgs):
-        """Constructor."""
-        super(Profile, self).__init__(*args, **kwgs)
-        self.download_dir = mkdtemp()
-        self.set_preference("browser.download.folderList", 2)
-        self.set_preference("browser.download.manager.showWhenStarting",
-                            False)
-        self.set_preference("browser.download.dir", self.download_dir)
-        self.set_preference("browser.helperApps.neverAsk.saveToDisk",
-                            "application/binary,text/plain")
-        self.set_preference("browser.download.manager.showAlertOnComplete",
-                            False)
-        self.set_preference("browser.download.panel.shown", True)
-
-
 @pom.register_pages(pages.pages)
 class Application(pom.App):
     """Application to launch horizon in browser."""
 
     def __init__(self, url, *args, **kwgs):
         """Constructor."""
-        self.profile = Profile()
         super(Application, self).__init__(
-            url, 'firefox', firefox_profile=self.profile, *args, **kwgs)
+            url, browser='Chrome', executable_path=config.CHROMEDRIVER_PATH,
+            *args, **kwgs)
 
         self.webdriver.maximize_window()
         self.webdriver.set_window_size(*config.RESOLUTION)
         self.webdriver.set_page_load_timeout(config.ACTION_TIMEOUT)
-
-    @property
-    def download_dir(self):
-        """Directory with downloaded files."""
-        return self.profile.download_dir
 
     def open(self, page):
         """Open page or url.

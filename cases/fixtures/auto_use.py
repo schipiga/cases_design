@@ -31,7 +31,7 @@ def virtual_display(request):
     if request.config.option.disable_virtual_display:
         return
 
-    _virtual_display = xvfbwrapper.Xvfb(width=1920, height=1080)
+    _virtual_display = xvfbwrapper.Xvfb(*config.RESOLUTION)
     # workaround for memory leak in Xvfb taken from:
     # http://blog.jeffterrace.com/2012/07/xvfb-memory-leak-workaround.html
     # and disables X access control

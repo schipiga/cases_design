@@ -15,4 +15,7 @@ SORT_YOUR_RATING = 'Your Rating'
 TEST_REPORTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                                 'test_reports'))
 
+CHROMEDRIVER_PATH = os.path.abspath(os.path.join(
+    os.path.dirname(__file__), 'third_party', 'chromedriver'))
+
 XVFB_LOCK = '/tmp/cases_xvfb.lock'
