@@ -1,7 +1,7 @@
 """
-Base page of user account.
-
-@author: schipiga@mirantis.com
+------------------
+Movie details page
+------------------
 """
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,11 +22,16 @@ from selenium.webdriver.common.by import By
 
 from cases.app.pages.base import PageBase
 
+__all__ = [
+    'PageMovieDetails',
+]
+
 
 @ui.register_ui(
     label_title=ui.UI(By.CSS_SELECTOR, 'h1[itemprop="name"]'),
     link_year=ui.Link(By.CSS_SELECTOR, '#titleYear > a'),
     label_rating=ui.UI(By.CSS_SELECTOR, '[itemprop="ratingValue"]'))
-class PageMovieDetail(PageBase):
-    """Base page of user account.""" 
+class PageMovieDetails(PageBase):
+    """Base page of user account."""
+
     url = '/title'

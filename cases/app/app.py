@@ -1,6 +1,7 @@
 """
-------
+-----------
 Application
+-----------
 """
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -33,12 +34,11 @@ __all__ = [
 
 ui.UI.timeout = config.UI_TIMEOUT
 RemoteConnection.set_timeout(config.ACTION_TIMEOUT)
-sorted_pages = sorted(pages.pages, key=lambda page: len(page.url))
 
 
 @pom.register_pages(pages.pages)
 class Application(pom.App):
-    """Application to launch horizon in browser."""
+    """Application to launch IMDB in browser."""
 
     def __init__(self, url, *args, **kwgs):
         """Constructor."""
@@ -71,7 +71,7 @@ class Application(pom.App):
 
     @property
     def current_page(self):
-        """Define current page"""
+        """Define current page."""
         current_url = self.webdriver.current_url
         current_url = self._remove_protocol(current_url)
         app_url = self._remove_protocol(self.app_url)

@@ -21,7 +21,9 @@ http://stepler.readthedocs.io/, https://github.com/Mirantis/stepler.
 
 Make following commands in terminal::
 
-   sudo apt-get install chromium-browser libav-tools xvfb xsel xclip
+   sudo apt-get update
+   sudo apt-get install -y chromium-browser libav-tools xvfb xsel xclip python-pip git gconf2
+   sudo pip install virtualenv
    git clone https://github.com/sergeychipiga/cases_design
    cd cases_design
    virtualenv .venv
@@ -39,6 +41,19 @@ Make following commands in terminal::
 
 #. ``py.test cases -v --disable-video-capture``
 """
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 import pytest
 
@@ -58,7 +73,7 @@ class TestTop250Imdb(object):
 
         **Setup:**
 
-        #. Open top IMDB page.
+        #. Open top IMDB movies page.
 
         **Steps:**
 
@@ -76,7 +91,7 @@ class TestTop250Imdb(object):
 
         **Setup:**
 
-        #. Open top IMDB page.
+        #. Open top IMDB movies page.
 
         **Steps:**
 
@@ -95,7 +110,7 @@ class TestTop250Imdb(object):
 
         **Setup:**
 
-        #. Open top IMDB page.
+        #. Open top IMDB movies page.
 
         **Steps:**
 
@@ -114,7 +129,7 @@ class TestTop250Imdb(object):
 
         **Setup:**
 
-        #. Open top IMDB page.
+        #. Open top IMDB movies page.
 
         **Steps:**
 
@@ -133,7 +148,7 @@ class TestTop250Imdb(object):
 
         **Setup:**
 
-        #. Open top IMDB page.
+        #. Open top IMDB movies page.
 
         **Steps:**
 
@@ -152,7 +167,7 @@ class TestTop250Imdb(object):
 
         **Setup:**
 
-        #. Open top IMDB page.
+        #. Open top IMDB movies page.
 
         **Steps:**
 
@@ -179,7 +194,7 @@ class TestTop250Imdb(object):
 
         **Setup:**
 
-        #. Open top IMDB page.
+        #. Open top IMDB movies page.
 
         **Steps:**
 
@@ -201,7 +216,7 @@ class TestTop250Imdb(object):
 
         **Setup:**
 
-        #. Open top IMDB page.
+        #. Open top IMDB movies page.
 
         **Steps:**
 

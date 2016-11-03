@@ -24,6 +24,10 @@ from selenium.webdriver.common.by import By
 
 from cases.app.pages.base import PageBase
 
+__all__ = [
+    'PageTopMovies',
+]
+
 
 @ui.register_ui(link_social=ui.Link(By.TAG_NAME, 'a'))
 class RowSocial(ui.Row):
@@ -32,6 +36,7 @@ class RowSocial(ui.Row):
 
 class ListSocial(ui.List):
     """List of containers."""
+
     row_cls = RowSocial
     row_xpath = ".//div[contains(@class, 'dropdown-menu-item')]"
 
@@ -57,11 +62,13 @@ class CellMovie(ui.Block):
         By.CSS_SELECTOR, 'td.watchlistColumn .standalone'))
 class RowMovie(ui.Row):
     """Row with object."""
+
     cell_cls = CellMovie
 
 
 class TableMovies(ui.Table):
     """Table with objects."""
+
     row_cls = RowMovie
     columns = {'poster': 1,
                'title': 2,
@@ -77,5 +84,6 @@ class TableMovies(ui.Table):
     table_movies=TableMovies(By.CSS_SELECTOR, 'table.chart'),
     list_social_share=ListSocial(By.CSS_SELECTOR, '.dropdown-menu.menu-right'))
 class PageTopMovies(PageBase):
-    """Base page of user account.""" 
+    """Base page of user account."""
+
     url = '/chart/top?ref_=nv_mv_250_6'

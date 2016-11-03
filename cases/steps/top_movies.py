@@ -1,7 +1,7 @@
 """
-Containers steps.
-
-@author: schipiga@mirantis.com
+----------------
+Top movies steps
+----------------
 """
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,7 +26,7 @@ from .base import BaseSteps
 
 
 class TopMoviesSteps(BaseSteps):
-    """Containers steps."""
+    """Top movies steps."""
 
     def share_with_social(self, check=True):
         """Step to share with social."""
@@ -115,7 +115,7 @@ class TopMoviesSteps(BaseSteps):
             row_movie.link_poster.click()
 
         if check:
-            with self.app.page_movie_detail as page:
+            with self.app.page_movie_details as page:
                 assert_that(self.app.current_page, equal_to(page))
                 assert_that(page.label_title.value, starts_with(movie_title))
                 assert_that(page.link_year.value, equal_to(movie_year))
@@ -142,6 +142,7 @@ class TopMoviesSteps(BaseSteps):
             self.check_page_login_buttons()
 
     def check_page_login_buttons(self):
+        """Step to check page login buttons."""
         self.app.page_login.link_facebook_login.wait_for_presence()
         self.app.page_login.link_google_login.wait_for_presence()
         self.app.page_login.link_amazon_login.wait_for_presence()
@@ -149,5 +150,6 @@ class TopMoviesSteps(BaseSteps):
         self.app.page_login.link_create_account.wait_for_presence()
 
     def check_movies_list_has_length(self, length):
+        """Step to check movies list length."""
         assert_that(
             self.app.page_top_movies.table_movies.rows, has_length(length))

@@ -1,7 +1,7 @@
 """
-Base page of user account.
-
-@author: schipiga@mirantis.com
+---------
+Base page
+---------
 """
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,10 +18,13 @@ Base page of user account.
 # limitations under the License.
 
 import pom
-from pom import ui
-from selenium.webdriver.common.by import By
+
+__all__ = [
+    'PageBase',
+]
 
 
 class PageBase(pom.Page):
-    """Base page of user account.""" 
+    """Base page of user account."""
+
     url = '/'

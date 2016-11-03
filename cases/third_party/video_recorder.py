@@ -21,7 +21,7 @@ import logging
 import os
 import signal
 import subprocess
-from threading import Thread
+import threading
 import time
 
 LOGGER = logging.getLogger(__name__)
@@ -70,7 +70,7 @@ class VideoRecorder(object):
 
             os.kill(self._popen.pid, signal.SIGTERM)
 
-        t = Thread(target=terminate_avconv)
+        t = threading.Thread(target=terminate_avconv)
         t.start()
 
         self._popen.communicate()

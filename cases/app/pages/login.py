@@ -1,7 +1,7 @@
 """
-Base page of user account.
-
-@author: schipiga@mirantis.com
+----------
+Login page
+----------
 """
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,6 +22,10 @@ from selenium.webdriver.common.by import By
 
 from cases.app.pages.base import PageBase
 
+__all__ = [
+    'PageLogin',
+]
+
 
 @ui.register_ui(
     link_facebook_login=ui.Link(
@@ -35,5 +39,6 @@ from cases.app.pages.base import PageBase
     link_create_account=ui.Link(
         By.CSS_SELECTOR, '.list-group-item.create-account'))
 class PageLogin(PageBase):
-    """Base page of user account.""" 
+    """Base page of user account."""
+
     url = '/registration/signin'
