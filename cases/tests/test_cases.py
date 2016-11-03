@@ -66,7 +66,5 @@ class TestTop250Imdb(object):
         top_movies_steps.reverse_movies_sort_order()
 
     @pytest.mark.parametrize('movies_amount', [250])
-    def test_movies_list_amount(self, app, movies_amount):
-        app.open(app.page_top_movies)
-        assert_that(app.page_top_movies.table_movies.rows,
-                    has_length(movies_amount))
+    def test_movies_list_amount(self, top_movies_steps, movies_amount):
+        top_movies_steps.check_movies_list_has_length(movies_amount)

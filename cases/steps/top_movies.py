@@ -17,7 +17,7 @@ Containers steps.
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from hamcrest import assert_that, equal_to, starts_with
+from hamcrest import assert_that, equal_to, has_length, starts_with
 import pyperclip
 
 from cases import config
@@ -86,7 +86,7 @@ class TopMoviesSteps(BaseSteps):
             numbers = []
             for row in rows:
                 number = row.cell('title').value.split('.', 1)[0]
-                numbers.append(number)
+                numbers.append(int(number))
             return numbers
 
         page = self.app.page_top_movies
@@ -148,3 +148,7 @@ class TopMoviesSteps(BaseSteps):
         self.app.page_login.link_amazon_login.wait_for_presence()
         self.app.page_login.link_imdb_login.wait_for_presence()
         self.app.page_login.link_create_account.wait_for_presence()
+
+    def check_movies_list_has_length(self, length):
+        assert_that(
+            self.app.page_top_movies.table_movies.rows, has_length(length))
