@@ -112,3 +112,7 @@ Scenario: **Copy site address to clipboard in dropdown menu**
     - Dropdown menu is closed.
 #. Open text editor and push Ctrl+V
     - link "http://www.imdb.com/chart/top" is pasted.
+
+--------------------------------------------------
+
+Talking about cases in pre-release test suite. Actually all cases should be executed during acceptance testing. But if time is limited, minor severity test cases can be neglected, and further test suite restriction depends on release specific.

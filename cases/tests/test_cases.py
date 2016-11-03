@@ -3,8 +3,17 @@
 Autotests for top 250 imdb
 --------------------------
 
-**Please, note that autotests may have different steps and cases, according to
-the convenience of automation.** (*And usually it happens.*)
+**Please, note that autotests may have different steps and cases than manual
+cases, according to the convenience of automation.**
+(*And usually it happens.*)
+
+These testcases are implemented with POM framework
+(http://pom.readthedocs.io/en/latest/, https://github.com/sergeychipiga/pom)
+and STEPS-methodology.
+If you are interesting how POM works in enterprise testing, please visit
+https://github.com/Mirantis/mos-horizon/tree/v9.1.
+If you are curious about STEPS-methodology in enterprise testing, please visit
+http://stepler.readthedocs.io/, https://github.com/Mirantis/stepler.
 """
 
 from hamcrest import assert_that, has_length
