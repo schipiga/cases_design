@@ -21,12 +21,12 @@ Containers steps.
 from .base import BaseSteps
 
 
-class TopSteps(BaseSteps):
+class TopMoviesSteps(BaseSteps):
     """Containers steps."""
 
     def page_top_movies(self):
         """Open containers page if it isn't opened."""
-        return self._open(self.app.page_containers)
+        return self._open(self.app.page_top_movies)
 
     def share_with_social(self):
         """Step to share with social."""

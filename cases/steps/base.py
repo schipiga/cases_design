@@ -32,11 +32,6 @@ class BaseSteps(object):
     def _open(self, page):
         current_page = self.app.current_page
         if page.__class__ != current_page.__class__:
-
-            if getattr(page, 'navigate_items', None):
-                current_page.navigate(page.navigate_items)
-
-            else:
                 page.open()
 
         return page

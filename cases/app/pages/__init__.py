@@ -14,7 +14,7 @@
 from .base import PageBase
 from .login import PageLogin
 from .movie_detail import PageMovieDetail
-from .top import PageTop
+from .top_movies import PageTopMovies
 
 __all__ = [
     'PageBase',
@@ -26,5 +26,5 @@ __all__ = [
 pages = [
     PageLogin,
     PageMovieDetail,
-    PageTop,
+    PageTopMovies,
 ]

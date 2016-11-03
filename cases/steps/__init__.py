@@ -1,5 +1,5 @@
-from .top import TopSteps
+from .top_movies import TopMoviesSteps
 
 __all__ = [
-    'TopSteps',
+    'TopMoviesSteps',
 ]

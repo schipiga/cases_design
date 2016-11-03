@@ -24,9 +24,12 @@ from pom import ui
 from selenium.webdriver import FirefoxProfile
 from selenium.webdriver.remote.remote_connection import RemoteConnection
 
-from case import config
+from cases import config
+from cases.app import pages
 
-from case import pages
+__all__ = [
+    'Application',
+]
 
 ui.UI.timeout = config.UI_TIMEOUT
 RemoteConnection.set_timeout(config.ACTION_TIMEOUT)
@@ -62,11 +65,8 @@ class Application(pom.App):
             url, 'firefox', firefox_profile=self.profile, *args, **kwgs)
 
         self.webdriver.maximize_window()
-        self.webdriver.set_window_size(config.RESOLUTION)
+        self.webdriver.set_window_size(*config.RESOLUTION)
         self.webdriver.set_page_load_timeout(config.ACTION_TIMEOUT)
-
-        self.current_username = None
-        self.current_project = None
 
     @property
     def download_dir(self):

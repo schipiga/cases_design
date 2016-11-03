@@ -92,6 +92,6 @@ class TableMovies(ui.Table):
     button_sort_order=ui.Button(By.CLASS_NAME, 'lister-sort-reverse'),
     table_movies=TableMovies(By.CSS_SELECTOR, 'table.chart'),
     dropdown_menu=DropdownMenu(By.CSS_SELECTOR, '.dropdown-menu.menu-right'))
-class PageTop(PageBase):
+class PageTopMovies(PageBase):
     """Base page of user account.""" 
     url = '/chart/top?ref_=nv_mv_250_6'

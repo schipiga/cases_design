@@ -10,7 +10,7 @@ the convenience of automation (And usually it happens).
 import pytest
 
 
-@pytest.mark.usefixtures('top_page')
+@pytest.mark.usefixtures('top_movies_page')
 class TestTop250Imdb(object):
     """Tests for top 250 IMDB movies page.
 
