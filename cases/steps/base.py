@@ -28,10 +28,3 @@ class BaseSteps(object):
             - app: horizon application instance.
         """
         self.app = app
-
-    def _open(self, page):
-        current_page = self.app.current_page
-        if page.__class__ != current_page.__class__:
-                page.open()
-
-        return page

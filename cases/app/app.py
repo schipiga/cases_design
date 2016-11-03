@@ -69,7 +69,6 @@ class Application(pom.App):
         self.webdriver.maximize_window()
         self.webdriver.set_window_size(*config.RESOLUTION)
         self.webdriver.set_page_load_timeout(config.ACTION_TIMEOUT)
-        self.open(pages.PageTopMovies)
 
     @property
     def download_dir(self):

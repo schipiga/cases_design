@@ -29,4 +29,4 @@ from cases.app.pages.base import PageBase
     label_rating=ui.UI(By.CSS_SELECTOR, '[itemprop="ratingValue"]'))
 class PageMovieDetail(PageBase):
     """Base page of user account.""" 
-    url = '/registration/signin'
+    url = '/title'
